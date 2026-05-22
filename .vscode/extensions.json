@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "naumovs.color-highlight",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "bradlc.vscode-tailwindcss",
+    "ban.spellright",
+    "biomejs.biome",
+    "openai.chatgpt",
+  ]
+}

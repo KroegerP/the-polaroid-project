@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres
+{
+  "name": "The Polaroid Project [Dev Container]",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/michidk/devcontainers-features/bun:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/sshd:1": {},
+    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "naumovs.color-highlight",
+        "editorconfig.editorconfig",
+        "eamodio.gitlens",
+        "bradlc.vscode-tailwindcss",
+        "ban.spellright",
+        "biomejs.biome"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash",
+            "icon": "terminal-bash"
+          },
+          "zsh": {
+            "path": "/bin/zsh"
+          }
+        }
+      }
+    }
+  }
+}

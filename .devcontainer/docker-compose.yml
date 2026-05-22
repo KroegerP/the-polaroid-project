@@ -1,0 +1,29 @@
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/javascript-node:24-bookworm
+
+    volumes:
+      - ../..:/workspaces:cached
+      - ~/.ssh:/home/node/.ssh:ro
+    env_file:
+      - ../.env
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+    ports:
+      - 5000:5000
+
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    env_file:
+      - ../.env
+    ports:
+      - 6432:5432
+
+volumes:
+  postgres_data:
