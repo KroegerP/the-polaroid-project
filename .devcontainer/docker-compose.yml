@@ -24,6 +24,16 @@ services:
       - ../.env
     ports:
       - 6432:5432
+  vercel-blob:
+    image: ghcr.io/payloadcms/vercel-blob-emulator:latest
+    container_name: vercel-blob
+    ports:
+      - "3100:3000"
+    environment:
+      EMULATOR_BASE_URL: "http://localhost:3100"
+    volumes:
+      - vercel_blob_data:/data
 
 volumes:
   postgres_data:
+  vercel_blob_data:
