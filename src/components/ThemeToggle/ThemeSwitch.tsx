@@ -1,28 +1,15 @@
 "use client";
 
 import { useTheme } from "@teispace/next-themes";
-import { MoonIcon, SunIcon } from "lucide-react";
-import { useMemo } from "react";
 import { THEME_OPTIONS } from "@/constants";
 
 export function ThemeSwitch() {
-  const { theme, setTheme } = useTheme();
-
-  const themeIcon = useMemo(() => {
-    switch (theme) {
-      case THEME_OPTIONS.DEFAULT:
-        return <MoonIcon />;
-      case THEME_OPTIONS.LIGHT:
-        return <SunIcon />;
-      default:
-        break;
-    }
-  }, [theme]);
+  const { setTheme } = useTheme();
 
   return (
     <details>
-      <summary>{themeIcon}</summary>
-      <ul className="bg-base-100 rounded-t-none p-2">
+      <summary>Theme</summary>
+      <ul className="bg-base-100 text-primary rounded-t-none p-2 w-max whitespace-nowrap">
         {Object.values(THEME_OPTIONS).map((t) => (
           <li key={t}>
             <button type="button" onClick={() => setTheme(t)}>
